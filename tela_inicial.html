@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform: perspective(-50%, -900%);
+          margin: 0;
+          background-color: black;
+          color: white;
+        }
+      </style>
+      <style>
+        body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 50vh;
+          margin: 0;
+          background-color: white;
+          color: black;
+          transform: translate(-0%, -35%)
+        }
+        .input-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 5px;
+        }
+        .input-container input {
+          margin: 1px;
+          padding: 10px;
+          border: none;
+          background-color: blue;
+          color: white;
+          border-radius: 15px;
+        } </style>
+        <style>
+            body {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              margin: 0;
+              background-color: white;
+              color: black;
+            }
+            
+            .input-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 10px;
+            }
+            
+            .input-container input {
+              margin: 1px;
+              padding: 10px;
+              border: 5px solid purple; /* Define a cor e a espessura da borda */
+              background-color: transparent; /* Define o fundo transparente */
+              color: black; /* Define a cor do texto digitado */
+              width: 470px; /* Define a largura dos inputs */
+            }
+            
+            .input-container input::placeholder {
+              color: black; /* Define a cor do texto de placeholder */
+            }
+          </style>
+          <style>
+            body {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              margin: 0 ;
+              background-color: white;
+            }
+            
+            #chart-container {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              width: 550px;
+              height: 300px;
+              border: 1px solid black;
+              margin-top: 20px;
+              position: relative;
+            }
+            
+            #chart {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 24px;
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+            
+            #vertical-line {
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 2px;
+              background-color: black;
+            }
+            
+            #vertical-line span {
+              position: absolute;
+              left: -20px;
+              font-size: 12px;
+              color: white;
+            }
+            
+            .legend {
+              display: flex;
+              align-items: center;
+              margin-top: 20px;
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+            
+            .legend-item {
+              display: flex;
+              align-items: center;
+              margin-right: 20px;
+            }
+            
+            .legend-color {
+              width: 20px;
+              height: 20px;
+              margin-right: 10px;
+              border-radius: 50%;
+            }
+          </style>
+          <script>
+            function drawChart() {
+              var input = document.getElementById("score");
+              var score = parseFloat(input.value);
+              
+              var chart = document.getElementById("chart");
+              var legend = document.getElementById("legend");
+              var chartLabel = "";
+              
+              if (score >= 0 && score <= 3) {
+                chart.style.backgroundColor = "pink";
+                chartLabel = "Abaixo do Básico";
+              } else if (score >= 4 && score <= 6) {
+                chart.style.backgroundColor = "yellow";
+                chartLabel = "Básico";
+              } else if (score >= 7 && score <= 8) {
+                chart.style.backgroundColor = "limegreen";
+                chartLabel = "Intermediário";
+              } else if (score >= 9 && score <= 10) {
+                chart.style.backgroundColor = "dodgerblue";
+                chartLabel = "Avançado";
+              } else {
+                chart.style.backgroundColor = "gray";
+                chartLabel = "Pontuação inválida";
+              }
+              
+              chart.innerHTML = chartLabel;
+              
+              // Atualiza a legenda
+              legend.innerHTML = "";
+              
+              var colors = ["pink", "yellow", "limegreen", "dodgerblue"];
+              var labels = ["Abaixo do Básico", "Básico", "Intermediário", "Avançado"];
+              
+              for (var i = 0; i < colors.length; i++) {
+                var legendItem = document.createElement("div");
+                legendItem.className = "legend-item";
+                
+                var color = document.createElement("div");
+                color.className = "legend-color";
+                color.style.backgroundColor = colors[i];
+                
+                var label = document.createElement("div");
+                label.innerHTML = labels[i];
+                
+                legendItem.appendChild(color);
+                legendItem.appendChild(label);
+                
+                legend.appendChild(legendItem);
+              }
+            }
+          </script>
+          <style>
+            body {
+              margin: 0;
+              padding: 0;
+              height: 2000px; /* Altura de exemplo para criar uma barra de rolagem */
+            }
+            
+            #scroll-buttons {
+              position: fixed;
+              top: 50%;
+              right: 20px;
+              transform: translateY(-50%);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            
+            #scroll-buttons button {
+              margin-bottom: 10px;
+              width: 40px;
+              height: 40px;
+              font-size: 20px;
+            }
+          </style>
+          <script>
+            function scrollToTop() {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            function scrollToBottom() {
+              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }
+          </script>
+      
+        </head>
+<body>
+<h1>Olá estudante!</h1>
+<h1>Olá, estudante</h1>
+<body>
+  function drawChart() {
+   
+  <h1 style="text-align: center; margin-bottom: 5px;">Olá estudante!</h1>
+  <h3 style="text-align: center; margin-bottom: 5px;">Caro(a) estudante,</h3>
+  <p style="text-align: center; margin: 5px;">
+      Gostaria de compartilhar com você o feedback sobre a sua avaliação, com base nos critérios de desempenho
+      estabelecidos: abaixo do básico, básico, intermediário e avançado. É importante ressaltar que o objetivo deste
+      feedback é auxiliá-lo(a) a identificar áreas de melhoria e fornecer sugestões para o seu desenvolvimento
+      contínuo.</p>
+  <p style="text-align: center; margin: 5px;">
+      Abaixo do básico: seu desempenho não atingiu os níveis mínimos esperados. Algumas sugestões para melhorar seu
+      aprendizado são:
+  </p>
+ 
+  
+  <div class="input-container">
+      
+  </div>
+  <script>
+    function drawChart() {
+      var input = document.getElementById("score");
+      var score = parseFloat(input.value);
+
+      var chart = document.getElementById("chart");
+      var legend = document.getElementById("legend");
+      var chartLabel = "";
+
+      if (score >= 0 && score <= 3) {
+        chart.style.backgroundColor = "pink";
+        chartLabel = "Abaixo do Básico";
+
+        // Text for "Abaixo do Básico" result
+        var feedbackText = `
+        Abaixo do básico: seu desempenho não atingiu os níveis mínimos esperados. Algumas sugestões para melhorar seu aprendizado são:
+        - Revisar os conceitos básicos do objeto de conhecimento a ser avaliado, identificando as lacunas em seu conhecimento.
+        - Participar ativamente das aulas, fazendo perguntas quando houver dúvidas e buscando esclarecimentos com o professor.
+        - Criar um plano de estudos estruturado, dividindo o conteúdo em tópicos e dedicando tempo suficiente para cada um deles.
+        - Buscar recursos adicionais, como tutoriais online, livros ou materiais complementares, para fortalecer sua compreensão dos assuntos.
+        `;
+      } else if (score >= 4 && score <= 6) {
+        chart.style.backgroundColor = "yellow";
+        chartLabel = "Básico";
+
+        // Text for "Básico" result
+        var feedbackText = `
+        Básico: o seu desempenho atingiu o nível mínimo necessário, mas há espaço para melhorias. Algumas sugestões para o seu desenvolvimento são:
+        - Reforçar a prática dos exercícios e problemas relacionados à matéria.
+        - Fazer anotações durante as aulas para ajudar na assimilação do conteúdo.
+        - Participar de grupos de estudo ou encontrar um colega para discutir os temas abordados.
+        - Explorar diferentes abordagens de aprendizagem, como vídeos explicativos ou recursos visuais, para complementar o aprendizado em sala de aula.
+        `;
+      } else if (score >= 7 && score <= 8) {
+        chart.style.backgroundColor = "limegreen";
+        chartLabel = "Intermediário";
+
+        // Text for "Intermediário" result
+        var feedbackText = `
+        Intermediário: o seu desempenho foi considerado satisfatório, mas ainda há espaço para aprimoramento. Algumas sugestões para fortalecer seu aprendizado são:
+        - Ampliar sua leitura sobre o tema;
+        - Explorar recursos online, como cursos gratuitos ou tutoriais avançados, para aprofundar seu conhecimento.
+        - Buscar feedback do professor ou de colegas sobre seu desempenho e identificar áreas específicas que precisam de mais atenção.
+        `;
+      } else if (score >= 9 && score <= 10) {
+        chart.style.backgroundColor = "dodgerblue";
+        chartLabel = "Avançado";
+
+        // Text for "Avançado" result
+        var feedbackText = `
+        Avançado: o seu desempenho foi excelente, demonstrando um nível além do esperado. No entanto, sempre há espaço para crescer ainda mais. Algumas sugestões para expandir seu aprendizado são:
+        - Compartilhar seu conhecimento com colegas, por meio de grupos de estudo ou apresentações para aprimorar ainda mais suas habilidades.
+        Lembre-se de que a aprendizagem é um processo contínuo e todos nós temos áreas que precisamos desenvolver. Utilize esse feedback como um guia para orientar seus esforços futuros e saiba que estou aqui para apoiá-lo(a) ao longo dessa jornada.
+        Desejo-lhe sucesso contínuo em seus estudos!
+        Atenciosamente, pró Ana Cálita.
+        `;
+      } else {
+        chart.style.backgroundColor = "gray";
+        chartLabel = "Pontuação inválida";
+      }
+
+      chart.innerHTML = chartLabel;
+      legend.innerHTML = "";
+
+      var colors = ["pink", "yellow", "limegreen", "dodgerblue"];
+      var labels = ["Abaixo do Básico", "Básico", "Intermediário", "Avançado"];
+
+      for (var i = 0; i < colors.length; i++) {
+        var legendItem = document.createElement("div");
+        legendItem.className = "legend-item";
+
+        var color = document.createElement("div");
+        color.className = "legend-color";
+        color.style.backgroundColor = colors[i];
+
+        var label = document.createElement("div");
+        label.innerHTML = labels[i];
+
+        legendItem.appendChild(color);
+        legendItem.appendChild(label);
+
+        legend.appendChild(legendItem);
+      }
+
+      // Add feedback text to the page
+      var feedbackContainer = document.createElement("div");
+      feedbackContainer.innerHTML = feedbackText;
+      feedbackContainer.style.marginTop = "5px";
+      feedbackContainer.style.padding = "10px";
+      feedbackContainer.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+      feedbackContainer.style.color = "black";
+      feedbackContainer.style.borderRadius = "15px";
+      feedbackContainer.style.textAlign = "left";
+      feedbackContainer.style.width = "80%";
+      feedbackContainer.style.marginLeft = "10%";
+      feedbackContainer.style.marginRight = "10%";
+
+      document.body.appendChild(feedbackContainer);
+    }
+  </script>
+
+</body>
+<body>
+  <h1 style="text-align: center; margin-bottom: 5px;">Olá estudante!</h1>
+  <h3 style="text-align: center; margin-bottom: 5px;">Caro(a) estudante,</h3>
+  <p style="text-align: center; margin: 5px;">
+      Gostaria de compartilhar com você o feedback sobre a sua avaliação, com base nos critérios de desempenho
+      estabelecidos: abaixo do básico, básico, intermediário e avançado. É importante ressaltar que o objetivo deste
+      feedback é auxiliá-lo(a) a identificar áreas de melhoria e fornecer sugestões para o seu desenvolvimento
+      contínuo.</p>
+  <p style="text-align: center; margin: 5px;">
+      
+  </p>
+  <ul style="text-align: left;">
+      
+  </ul>
+  <p style="text-align: center; margin: 5px;">
+      Lembre-se de que a aprendizagem é um processo contínuo e todos nós temos áreas que precisamos desenvolver.
+      Utilize esse feedback como um guia para orientar seus esforços futuros e saiba que estou aqui para apoiá-lo(a) ao
+      longo dessa jornada.
+  </p>
+  <p style="text-align: center; margin: 5px;">
+    Desejo-lhe sucesso contínuo em seus estudos!
+    <br> Atenciosamente, pró Ana Cálita.
+</p>
+  </p>
+  <div class="input-container">
+      <!-- ... (your existing input fields) ... -->
+  </div>
+  <!-- ... (your existing code) ... -->
+</body>
+<body>
+    <div class="input-container">
+      <input type="text" placeholder="Escola:">
+      <input type="text" placeholder="Série/Ano escolar:">
+    </div>
+    <div class="input-container">
+      <input type="text" placeholder="Prova:">
+      <input type="text" placeholder="DR/Município:">
+    </div>
+    <div class="input-container">
+      <input type="text" placeholder="Estudante:">
+      <input type="text" placeholder="Ano:">
+    </div>
+    <h1>Gráfico de Desempenho</h1>
+  <input type="number" id="score" step="0.01" min="0" max="10" placeholder="Informe sua pontuação de 0 a 10">
+  <button onclick="drawChart()">Gerar Gráfico</button>
+  <div id="chart-container">
+    <div id="vertical-line">
+      <span>10</span>
+      <span>9</span>
+      <span>8</span>
+      <span>7</span>
+      <span>6</span>
+      <span>5</span>
+      <span>4</span>
+      <span>3</span>
+      <span>2</span>
+      <span>1</span>
+    </div>
+    <div id="chart"></div>
+  </div>
+  <div id="legend" class="legend"></div>
+  
+    <!-- ... (your existing content) ... -->
+    <div id="feedback-container"></div>
+
+    <!-- ... (your existing content) ... -->
+
+  
+</body>
+</html>
